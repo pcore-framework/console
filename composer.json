@@ -17,5 +17,10 @@
         "psr-4": {
             "PCore\\Console\\": "src/"
         }
+    },
+    "extra": {
+        "pcore": {
+            "config": "PCore\\Console\\ConfigProvider"
+        }
     }
 }
