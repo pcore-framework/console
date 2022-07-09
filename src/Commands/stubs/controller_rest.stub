@@ -1,0 +1,36 @@
+<?php
+
+declare(strict_types=1);
+
+namespace {{namespace}};
+
+use PCore\Routing\Annotations\Controller;
+use PCore\Routing\Annotations\GetMapping;
+use PCore\Routing\Annotations\DeleteMapping;
+use PCore\Routing\Annotations\RequestMapping;
+
+#[Controller(prefix: '/{{path}}')]
+class {{class}}
+{
+
+    #[GetMapping(path: '/')]
+    public function index()
+    {
+    }
+
+    #[GetMapping(path: '/<id>')]
+    public function show($id)
+    {
+    }
+
+    #[DeleteMapping(path: '/<id>')]
+    public function delete($id)
+    {
+    }
+
+    #[RequestMapping(path: '/<id>', methods: ['PUT', 'PATCH'])]
+    public function update($id)
+    {
+    }
+
+}

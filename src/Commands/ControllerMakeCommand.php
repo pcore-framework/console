@@ -23,7 +23,8 @@ class ControllerMakeCommand extends Command
         $this->setName('make:controller')
             ->setDescription('Making controllers.')
             ->setDefinition([
-                new InputArgument('controller', InputArgument::REQUIRED, 'Имя контроллера')
+                new InputArgument('controller', InputArgument::REQUIRED, 'Имя контроллера, например "user".'),
+                new InputOption('rest', 'r', InputOption::VALUE_OPTIONAL, 'Создать спокойный контроллер.')
             ]);
     }
 
@@ -36,7 +37,7 @@ class ControllerMakeCommand extends Command
     protected function execute(InputInterface $input, OutputInterface $output)
     {
         $controller = $input->getArgument('controller');
-        $stubFile = $this->stubsPath . 'controller.stub';
+        $stubFile = $this->stubsPath . ($input->hasOption('rest') ? 'controller_rest.stub' : 'controller.stub');
         [$namespace, $controller] = $this->parse($controller);
         $controllerPath = base_path('src/Controllers/' . str_replace('\\', '/', $namespace) . '/');
         $controllerFile = $controllerPath . $controller . 'Controller.php';
