@@ -17,6 +17,11 @@ use Symfony\Component\Console\Helper\Table;
 use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Output\{ConsoleOutput, OutputInterface};
 
+/**
+ * Class RouteListCommand
+ * @package PCore\Console\Commands
+ * @github https://github.com/pcore-framework/console
+ */
 class RouteListCommand extends Command
 {
 
