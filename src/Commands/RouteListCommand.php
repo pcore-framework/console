@@ -50,7 +50,7 @@ class RouteListCommand extends Command
             $action = $route->getAction();
             if (is_array($action)) {
                 $action = implode('@', $action);
-            } else if ($action instanceof Closure) {
+            } elseif ($action instanceof Closure) {
                 $action = 'Closure';
             }
             $table->addRow([
@@ -85,7 +85,7 @@ class RouteListCommand extends Command
             }
         }
         return Collection::make($routes)->unique()->sortBy(function ($item) {
-            /** @var Route $item */
+            /* @var Route $item */
             return $item->getPath();
         });
     }
