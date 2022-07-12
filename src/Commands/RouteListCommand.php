@@ -4,13 +4,12 @@ declare (strict_types=1);
 
 namespace PCore\Console\Commands;
 
-use App\Kernel;
+use App\Kernel\Kernel;
 use Closure;
 use PCore\Di\Exceptions\NotFoundException;
 use PCore\Routing\{Route, RouteCollector};
 use PCore\Utils\Collection;
 use Psr\Container\ContainerExceptionInterface;
-use Psr\Http\Server\RequestHandlerInterface;
 use ReflectionException;
 use Symfony\Component\Console\Command\Command;
 use Symfony\Component\Console\Helper\Table;

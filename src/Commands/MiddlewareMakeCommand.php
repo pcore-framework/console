@@ -49,7 +49,7 @@ class MiddlewareMakeCommand extends Command
             ['App\\Middlewares' . $namespace, $middleware . $suffix],
             file_get_contents($stubFile)
         ));
-        $output->writeln("<info>[DEBU]</info>Промежуточное программное обеспечение App\\Middlewares{$namespace}\\{$middleware} было создано успешно!");
+        $output->writeln("<info>[DEBU]</info> Промежуточное программное обеспечение App\\Middlewares{$namespace}\\{$middleware} было создано успешно!");
         return 1;
     }
 

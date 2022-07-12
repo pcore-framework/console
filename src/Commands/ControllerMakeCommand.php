@@ -51,7 +51,7 @@ class ControllerMakeCommand extends Command
             ['App\\Controllers' . $namespace, $controller . 'Controller', strtolower($controller)],
             Filesystem::get($stubFile)
         ));
-        $output->writeln("<info>[INFO]</info>Контроллер App\\Controllers{$namespace}\\{$controller}Controller был создан успешно!");
+        $output->writeln("<info>[INFO]</info> Контроллер App\\Controllers{$namespace}\\{$controller}Controller был создан успешно!");
         return 1;
     }
 

@@ -16,7 +16,9 @@ class ConfigProvider
     {
         return [
             'commands' => [
-                'PCore\\Console\Commands\ControllerMakeCommand'
+                'PCore\Console\Commands\ControllerMakeCommand',
+                'PCore\Console\Commands\RouteListCommand',
+                'PCore\Console\Commands\MiddlewareMakeCommand'
             ]
         ];
     }
