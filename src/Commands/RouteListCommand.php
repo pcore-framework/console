@@ -43,12 +43,12 @@ class RouteListCommand extends Command
     public function execute(InputInterface $input, OutputInterface $output)
     {
         $table = new Table(new ConsoleOutput());
-        $table->setHeaders(['Methods', 'URI', 'Action', 'Middlewares', 'Domain']);
+        $table->setHeaders(['Methods', 'URI', 'Action', 'Middlewares']);
         foreach ($this->getRoutes() as $route) {
             /** @var Route $route */
             $action = $route->getAction();
             if (is_array($action)) {
-                $action = implode('#', $action);
+                $action = implode('::', $action);
             } elseif ($action instanceof Closure) {
                 $action = 'Closure';
             }
@@ -56,8 +56,7 @@ class RouteListCommand extends Command
                 implode('|', $route->getMethods()),
                 $route->getPath(),
                 $action,
-                implode(PHP_EOL, $route->getMiddlewares()),
-                $route->getDomain() ?: '*'
+                implode(PHP_EOL, $route->getMiddlewares())
             ]);
         }
         $table->render();
@@ -76,10 +75,8 @@ class RouteListCommand extends Command
         $routes = [];
         foreach ($routeCollector->all() as $registeredRoute) {
             foreach ($registeredRoute as $route) {
-                foreach ($route as $item) {
-                    if (!in_array($item, $routes)) {
-                        $routes[] = $item;
-                    }
+                if (!in_array($route, $routes)) {
+                    $routes[] = $route;
                 }
             }
         }
